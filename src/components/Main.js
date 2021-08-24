@@ -36,7 +36,7 @@ export function Main (props) {
                 <div className="profile__info">
                     <button className="profile__avatar-button" type="button" aria-label="Сменить_аватар" 
                     onClick={props.onEditAvatar}/>
-                    <div className="profile__avatar" style={{ backgroundImage: `url(${userAvatar})` }}  alt="фото профиля" />
+                    <div className="profile__avatar" style={{ backgroundImage: `url(${userAvatar})`}}/>
                     <div className="profile__grid">
                       <div className="profile__name-wrapper">
                         <h1 className="profile__name">{userName}</h1>
