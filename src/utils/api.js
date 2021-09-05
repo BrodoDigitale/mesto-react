@@ -24,8 +24,8 @@ class Api {
       method: 'PATCH',
       headers: this._headers,
       body: JSON.stringify({
-        name: data.userName,
-        about: data.userInfo,
+        name: data.name,
+        about: data.about,
         })
     })
     .then(this._handleResponse)
@@ -64,20 +64,21 @@ class Api {
      }
      return Promise.reject (`Ошибка: ${res.status}`)
     }
-    putLike(id) {
-    return fetch(`${this._url}/cards/likes/${id}`,{
-      method: 'PUT',
-      headers: this._headers
-    })
-    .then(this._handleResponse)
-    }
-    deleteLike(id) {
-      return fetch(`${this._url}/cards/likes/${id}`,{
-        method: 'DELETE',
-        headers: this._headers
-      })
-      .then(this._handleResponse)
-      }
+     changeLikeCardStatus(id, isLiked) {
+      if(!isLiked){
+        return fetch(`${this._url}/cards/likes/${id}`,{
+          method: 'PUT',
+          headers: this._headers
+        })
+        .then(this._handleResponse)
+      } else {
+        return fetch(`${this._url}/cards/likes/${id}`,{
+          method: 'DELETE',
+          headers: this._headers
+        })
+        .then(this._handleResponse)
+        }
+      } 
   }
   
 //Создание api
