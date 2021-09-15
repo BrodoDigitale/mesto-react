@@ -47,20 +47,20 @@ export function App() {
         api.updateUserData(data)
         .then((res)=> {
             setCurrentUser(res)
+            closeAllPopups()
         })
         .catch(err => console.log(err));
-        closeAllPopups()
     }
     //Изменение аватара
     function handleUpdateAvatar(data) {
         api.updateAvatar(data.avatar)
         .then((res) => {
             setCurrentUser(res)
+            closeAllPopups()
         })
         .catch(err => console.log(err));
-        closeAllPopups()
     }
-    //Каточки
+    //Карточки
     const [cards, renderCards] = React.useState([]);
 
     React.useEffect(() => {
@@ -91,10 +91,10 @@ export function App() {
     function handleAddPlaceSubmit(data) {
         api.addCard(data)
         .then((newCard)=>{
-        renderCards([newCard, ...cards]); 
+        renderCards([newCard, ...cards]);
+        closeAllPopups() 
         })
         .catch(err => console.log(err));
-        closeAllPopups()
     }
 
   return (
