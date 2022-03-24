@@ -1,4 +1,4 @@
-### Frontend-part of Mesto project creted with React
+### Frontend-part of Mesto project created with React
 
 ### Functionality:
 - cards rendering
